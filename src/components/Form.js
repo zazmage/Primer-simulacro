@@ -42,14 +42,16 @@ export const Form = () => {
   };
 
   const handlePost = async () => {
-    await fetch("https://primer-simulacro.herokuapp.com/animals", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-      },
-      body: JSON.stringify(form),
-    });
-    window.location.reload();
+    if (form.imgUrl !== "") {
+      await fetch("https://primer-simulacro.herokuapp.com/animals", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(form),
+      });
+      window.location.reload();
+    }
   };
 
   return (
